@@ -1,23 +1,27 @@
 {
-  "name": "react-navbar",
-  "private": false,
-  "version": "1.0.0",
+  "name": "@b7r/react-navbar",
+  "version": "0.1.0",
+  "type": "module",
   "main": "dist/index.js",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
-  "module": "dist/index.mjs",
-  "exports": {
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.js"
+  "license": "MIT",
+  "author": {
+    "name": "aleizabd",
+    "url": "https://x.com/_7coder"
   },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
     "@types/argparse": "^2.0.17",
+    "@types/node": "^22.13.2",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^4.3.4",
@@ -28,6 +32,7 @@
     "globals": "^15.14.0",
     "postcss": "^8.5.1",
     "tailwindcss": "^3.4.17",
+    "tsup": "^8.3.6",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.22.0",
     "vite": "^6.1.0",
@@ -44,8 +49,6 @@
     "header",
     "main-menu"
   ],
-  "author": "aleizabd",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Alizelabd/react-navbar/issues"
   },
@@ -56,8 +59,15 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.5",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.475.0",
     "tailwind-merge": "^3.0.1"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
   }
 }

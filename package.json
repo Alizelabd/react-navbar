@@ -1,6 +1,6 @@
 {
   "name": "@b7r/react-navbar",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -74,7 +74,7 @@
   "files": [
     "dist",
     "cli.js",
-    "src/components/ui/navbar"
+    "src/components/navbar.tsx"
   ],
   "publishConfig": {
     "access": "public"

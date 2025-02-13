@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { cn } from '../../../lib/cn';
+import { cn } from '@/lib/cn';
+
 import { NavbarLogoProps } from './types';
 
 const NavbarLogo = React.forwardRef<HTMLDivElement | HTMLAnchorElement, NavbarLogoProps>(

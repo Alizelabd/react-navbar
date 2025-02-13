@@ -5,11 +5,12 @@ This project is a flexible and customizable navigation bar built with React and 
 
 ```bash
 npm install @b7r/react-navbar
+npx add-navbar
 ```
 
 ## Usage
 
-```jsx
+```tsx
 import { 
   Navbar, 
   NavbarLogo, 

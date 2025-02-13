@@ -27,13 +27,14 @@ program
 
       // Define paths
       const targetDir = path.join(process.cwd(), response.directory);
-      const sourceDir = path.join(__dirname, 'src', 'components', 'navbar.tsx');
+      const sourceDir = path.join(__dirname, 'src', 'components', 'navbar');
 
       // Ensure target directory exists
       await fs.ensureDir(targetDir);
 
       // Copy component files
-      await fs.copy(sourceDir, targetDir);
+      await fs.copy(sourceDir, path.join(targetDir, 'navbar.tsx'));
+
 
       // Create utils file if it doesn't exist
       const utilsDir = path.join(process.cwd(), 'lib');

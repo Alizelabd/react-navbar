@@ -17,7 +17,7 @@ import {
   NavbarContent, 
   NavbarMenu, 
   NavbarTrigger 
-} from '@b7r/react-navbar';
+} from '@your_dir';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);

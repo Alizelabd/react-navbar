@@ -54,9 +54,9 @@ const navbarVariants = cva(
 );
 
 // Components
-export interface NavbarProps
-  extends NavbarRootProps,
-    VariantProps<typeof navbarVariants> {}
+export type NavbarProps = 
+  NavbarRootProps &
+    VariantProps<typeof navbarVariants>;
 
 const Navbar = React.forwardRef<HTMLDivElement, NavbarProps>(
   ({ className, children, variant, sticky, ...props }, ref) => {
@@ -140,6 +140,7 @@ const NavbarTrigger = React.forwardRef<HTMLButtonElement, NavbarTriggerProps>(
   ({ className, onClick, children, ...props }, ref) => {
     return (
       <button
+      type='button'
         ref={ref}
         onClick={onClick}
         className={cn(

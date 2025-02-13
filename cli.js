@@ -27,7 +27,7 @@ program
 
       // Define paths
       const targetDir = path.join(process.cwd(), response.directory);
-      const sourceDir = path.join(__dirname, 'src', 'components', 'navbar');
+      const sourceDir = path.join(__dirname, 'src', 'components', 'navbar.tsx');
 
       // Ensure target directory exists
       await fs.ensureDir(targetDir);

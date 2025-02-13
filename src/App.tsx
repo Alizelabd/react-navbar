@@ -6,7 +6,7 @@ import {
   NavbarContent,
   NavbarMenu,
   NavbarTrigger,
-} from './components/ui/navbar';
+} from '@/components/navbar';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,10 +29,12 @@ function App() {
       </NavbarContent>
 
       <NavbarContent className="md:hidden">
-        <NavbarTrigger onClick={() => setIsMenuOpen(!isMenuOpen)} />
+        <NavbarTrigger  onClick={() => setIsMenuOpen(!isMenuOpen)} >
+          <GithubIcon className="h-6 w-6" />
+        </NavbarTrigger>
       </NavbarContent>
 
-      <NavbarMenu show={isMenuOpen} align='center' className="md:hidden">
+      <NavbarMenu show={isMenuOpen} className="md:hidden">
         <ul className="flex flex-col gap-4">
           <li><a href="#">Features</a></li>
           <li><a href="#">Pricing</a></li>

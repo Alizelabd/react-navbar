@@ -30,6 +30,7 @@ export type NavbarMenuProps = {
 }
 
 export type NavbarTriggerProps = {
+  children?: ReactNode;
   className?: string;
   onClick?: () => void;
   icon?: React.ElementType;

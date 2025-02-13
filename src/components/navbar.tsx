@@ -3,29 +3,29 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../lib/cn';
 
 // Types
-export interface NavbarRootProps {
+export type NavbarRootProps = {
   children?: React.ReactNode;
   className?: string;
 }
 
-export interface NavbarLogoProps {
+export type NavbarLogoProps = {
   children: React.ReactNode;
   className?: string;
   href?: string;
 }
 
-export interface NavbarContentProps {
+export type NavbarContentProps = {
   children: React.ReactNode;
   className?: string;
 }
 
-export interface NavbarMenuProps {
+export type NavbarMenuProps = {
   children: React.ReactNode;
   className?: string;
   show?: boolean;
 }
 
-export interface NavbarTriggerProps {
+export type NavbarTriggerProps = {
   className?: string;
   onClick?: () => void;
   children?: React.ReactNode;

@@ -17,7 +17,7 @@ import {
   NavbarContent, 
   NavbarMenu, 
   NavbarTrigger 
-} from '@your_dir';
+} from '@src/compnents/ui';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);

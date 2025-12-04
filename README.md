@@ -1,149 +1,159 @@
-# react-navbar - شريط تنقل محسن (Enhanced Navbar)
+# react-navbar - Enhanced Accessible Navigation Bar
 
-هذا المشروع هو شريط تنقل مرن وقابل للتخصيص مبني باستخدام React و Tailwind CSS، وقد تم تحسينه الآن بدمج **Radix UI** لضمان أعلى مستويات الوصولية (Accessibility) وإضافة ميزات متقدمة.
+This project provides a flexible, customizable, and highly accessible navigation bar component built with **React** and **Tailwind CSS**. It has been significantly enhanced by integrating **Radix UI Primitives** to ensure robust accessibility (A11Y) and advanced features.
 
-## 🚀 الميزات الجديدة
+## ✨ Features
 
-*   **الوصولية المحسّنة (A11Y):** استخدام بدائيات Radix UI لضمان إدارة التركيز والتنقل بلوحة المفاتيح الصحيحة.
-*   **قائمة الهاتف المحمول (Mobile Menu):** تم إعادة بنائها باستخدام `Radix Dialog` لتجربة مستخدم ووصولية أفضل.
-*   **قائمة ملف تعريف المستخدم (User Dropdown):** مكون اختياري (`NavbarUser`) يوفر قائمة منسدلة متكاملة الوصولية.
-*   **شريط البحث المتقدم (Command Palette):** مكون اختياري (`NavbarSearch`) يوفر واجهة بحث على نمط لوحة الأوامر (Command Palette).
-*   **نظام CLI مطور:** دعم تثبيت المكونات الاختيارية عبر سطر الأوامر.
+*   **Enhanced Accessibility (A11Y):** Leverages Radix UI for correct focus management, keyboard navigation, and ARIA attributes.
+*   **Mobile Menu:** Rebuilt using `Radix Dialog` for a superior, accessible mobile experience.
+*   **User Profile Dropdown:** Optional `NavbarUser` component for an accessible user menu.
+*   **Command Palette Search:** Optional `NavbarSearch` component providing a modern, command-palette style search interface.
+*   **Improved CLI:** A powerful Command Line Interface for easy installation of core and optional components.
 
-## 🛠️ التثبيت
+## 🛠️ Installation
 
-### 1. تثبيت الحزمة (قريباً)
+The component is designed to be installed directly into your project's source code using the provided CLI tool.
+
+### 1. Install Dependencies
+
+First, ensure you have the necessary peer dependencies installed:
 
 ```bash
-npm install @b7r/react-navbar
+npm install react react-dom class-variance-authority clsx tailwind-merge
 ```
 
-### 2. تثبيت المكونات عبر CLI
+### 2. Use the CLI to Install Components
 
-استخدم الأمر التالي لتثبيت المكونات الأساسية في مشروعك.
+Use the `npx` command to run the CLI tool and copy the component files into your project.
 
 ```bash
 npx add-navbar --dir components/ui/navbar
 ```
 
-#### تثبيت الميزات الاختيارية
+#### Installing Optional Features
 
-يمكنك الآن تثبيت الميزات المتقدمة باستخدام الخيارات التالية:
+You can include the advanced features using the following flags:
 
-| الخيار | الوصف | التبعيات المطلوبة |
+| Flag | Description | Required Radix UI Dependency |
 | :--- | :--- | :--- |
-| `--with-user-dropdown` | لتضمين مكون `NavbarUser` (قائمة ملف تعريف المستخدم). | `@radix-ui/react-dropdown-menu` |
-| `--with-search` | لتضمين مكون `NavbarSearch` (شريط البحث المتقدم). | `@radix-ui/react-dialog` |
+| `--with-user-dropdown` | Includes the `NavbarUser` component (User Profile Dropdown). | `@radix-ui/react-dropdown-menu` |
+| `--with-search` | Includes the `NavbarSearch` component (Command Palette style search). | `@radix-ui/react-dialog` |
 
-**مثال على التثبيت الكامل:**
+**Example: Full Installation**
+
+To install the core component, the user dropdown, and the search component into `src/components/ui/navbar`:
 
 ```bash
-npx add-navbar --dir src/ui/navbar --with-user-dropdown --with-search
+npx add-navbar --dir src/components/ui/navbar --with-user-dropdown --with-search
 ```
 
-**ملاحظة:** سيقوم الـ CLI بتوجيهك لتثبيت تبعيات Radix UI المطلوبة بعد نسخ الملفات.
+**Important:** After running the CLI, it will provide clear instructions on which Radix UI packages you need to install to support the optional components you selected.
 
-## 💡 الاستخدام
+## 💡 Usage Example
 
-تم تبسيط استخدام المكونات الأساسية، وتم إضافة المكونات الجديدة.
+Here is a comprehensive example demonstrating how to use the core and optional components together:
 
 ```tsx
 import { 
   Navbar, 
   NavbarLogo, 
   NavbarContent, 
-  NavbarMobile // تم استبدال NavbarMenu في وضع الهاتف
-} from '@your_dir/navbar';
+  NavbarMobile 
+} from '@/components/ui/navbar/navbar'; // Adjust path based on your --dir flag
 
-// استيراد المكونات الاختيارية
-import { NavbarUser, NavbarUserItem, NavbarUserSeparator } from '@your_dir/navbar-user';
-import { NavbarSearch } from '@your_dir/navbar-search';
+// Import optional components
+import { NavbarUser, NavbarUserItem, NavbarUserSeparator } from '@/components/ui/navbar/navbar-user';
+import { NavbarSearch } from '@/components/ui/navbar/navbar-search';
 
 function App() {
   return (
-    <Navbar variant="default" sticky>
-      <NavbarContent>
-        <NavbarLogo href="/">
-          <span className="text-xl font-bold">My App</span>
-        </NavbarLogo>
-      </NavbarContent>
+    <div className="min-h-screen">
+      <Navbar variant="default" sticky>
+        <NavbarContent>
+          <NavbarLogo href="/">
+            <span className="text-xl font-bold">My App</span>
+          </NavbarLogo>
+        </NavbarContent>
 
-      <NavbarContent className="hidden md:flex">
-        {/* الروابط الرئيسية */}
-        <a href="/features">Features</a>
-        <a href="/pricing">Pricing</a>
-        
-        {/* شريط البحث المتقدم */}
-        <NavbarSearch placeholder="Search (Cmd+K)" />
-        
-        {/* قائمة ملف تعريف المستخدم */}
-        <NavbarUser avatarUrl="/avatar.jpg" userName="Ali Zlabd">
-          <NavbarUserItem>Profile</NavbarUserItem>
-          <NavbarUserItem>Settings</NavbarUserItem>
-          <NavbarUserSeparator />
-          <NavbarUserItem>Logout</NavbarUserItem>
-        </NavbarUser>
-      </NavbarContent>
+        {/* Desktop Navigation */}
+        <NavbarContent className="hidden md:flex">
+          <ul className='flex gap-4 items-center'>
+            <li><a href="/features" className="text-gray-600 hover:text-gray-900">Features</a></li>
+            <li><a href="/pricing" className="text-gray-600 hover:text-gray-900">Pricing</a></li>
+            
+            {/* 1. Command Palette Search */}
+            <li><NavbarSearch placeholder="Search (Cmd+K)" /></li>
+            
+            {/* 2. User Profile Dropdown */}
+            <li>
+              <NavbarUser avatarUrl="/path/to/avatar.jpg" userName="John Doe">
+                <NavbarUserItem>Profile</NavbarUserItem>
+                <NavbarUserItem>Settings</NavbarUserItem>
+                <NavbarUserSeparator />
+                <NavbarUserItem>Log Out</NavbarUserItem>
+              </NavbarUser>
+            </li>
+          </ul>
+        </NavbarContent>
 
-      {/* قائمة الهاتف المحمول (تظهر فقط على الشاشات الصغيرة) */}
-      <NavbarMobile side="right">
-        {/* محتوى القائمة في وضع الهاتف */}
-        <a href="/features">Features</a>
-        <a href="/pricing">Pricing</a>
-        <a href="/about">About</a>
-      </NavbarMobile>
-    </Navbar>
+        {/* Mobile Navigation */}
+        <NavbarContent className="md:hidden">
+          {/* 3. Accessible Mobile Menu */}
+          <NavbarMobile side="right">
+            <div className="flex flex-col gap-4">
+              <a href="/features">Features</a>
+              <a href="/pricing">Pricing</a>
+              <a href="/about">About</a>
+              <NavbarSearch placeholder="Search" />
+            </div>
+          </NavbarMobile>
+        </NavbarContent>
+      </Navbar>
+      {/* ... rest of your application */}
+    </div>
   );
 }
 ```
 
-## 🧩 المكونات
+## 🧩 Component API Reference
 
-### Navbar
+### 1. Core Components (`navbar.tsx`)
 
-المكون الجذري الذي يغلف جميع عناصر شريط التنقل.
+| Component | Description | Props |
+| :--- | :--- | :--- |
+| **`Navbar`** | The root container for the navigation bar. | `variant`: `'default' \| 'transparent' \| 'colored'`, `sticky`: `boolean`, `className`: `string` |
+| **`NavbarLogo`** | Component for the brand or logo. | `href`: `string` (optional), `children`: `ReactNode` |
+| **`NavbarContent`** | A flexible container for grouping navigation items (e.g., left, center, right groups). | `className`: `string`, `children`: `ReactNode` |
+| **`NavbarTrigger`** | The button element used to trigger the mobile menu (automatically used inside `NavbarMobile`). | `className`: `string`, `children`: `ReactNode` |
+| **`NavbarMobile`** | The accessible, Radix-powered mobile menu wrapper. | `side`: `'top' \| 'right' \| 'bottom' \| 'left'` (controls slide direction), `children`: `ReactNode` |
 
-*   **Props:** `variant`, `sticky`, `className`.
+### 2. Optional Components
 
-### NavbarLogo
+#### `NavbarUser` (`navbar-user.tsx`)
 
-مكون شعار/علامة شريط التنقل.
+A component for an accessible user profile dropdown menu.
 
-*   **Props:** `href`, `className`, `children`.
+| Component | Description | Props |
+| :--- | :--- | :--- |
+| **`NavbarUser`** | The main component wrapping the avatar and dropdown. | `avatarUrl`: `string`, `userName`: `string`, `children`: `ReactNode` (Dropdown items) |
+| **`NavbarUserItem`** | A clickable item within the dropdown menu. | Extends `DropdownMenu.DropdownMenuItemProps` |
+| **`NavbarUserSeparator`** | A visual separator line within the dropdown. | - |
 
-### NavbarContent
+#### `NavbarSearch` (`navbar-search.tsx`)
 
-حاوية لعناصر شريط التنقل.
+A component that triggers a Command Palette style search dialog.
 
-*   **Props:** `className`, `children`.
+| Component | Description | Props |
+| :--- | :--- | :--- |
+| **`NavbarSearch`** | The button that opens the search dialog. Supports `Cmd+K` / `Ctrl+K` shortcut. | `placeholder`: `string`, `className`: `string` |
 
-### NavbarMobile (جديد)
+## ⚙️ Development
 
-يحل محل `NavbarTrigger` و `NavbarMenu` في وضع الهاتف المحمول، ويستخدم `Radix Dialog` لتجربة أفضل.
+To run the project locally for development or testing:
 
-*   **Props:** `side` ('top' | 'right' | 'bottom' | 'left'), `children`.
+1.  Install dependencies: `npm install`
+2.  Run the development server: `npm run start`
 
-### NavbarSearch (جديد)
-
-مكون شريط البحث المتقدم (Command Palette).
-
-*   **Props:** `placeholder`, `className`.
-
-### NavbarUser (جديد)
-
-مكون قائمة ملف تعريف المستخدم.
-
-*   **Props:** `avatarUrl`, `userName`, `children`.
-
-## ⚙️ بيئة التطوير
-
-تم تحسين بيئة التطوير لضمان سير العمل بشكل سلس.
-
-### تشغيل المشروع
-
-1.  تثبيت التبعيات: `npm install`
-2.  تشغيل وضع التطوير: `npm run dev`
-
-## 📄 الترخيص
+## 📄 License
 
 MIT

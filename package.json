@@ -14,7 +14,7 @@
   "scripts": {
     "build": "tsup",
     "dev": " tsup --watch",
-    "start": "vite"
+    "start": "vite",
     "lint": "eslint .",
     "clean": "rm -rf dist",
     "prepublishOnly": "npm run build"

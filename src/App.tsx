@@ -1,10 +1,8 @@
-import { useState } from 'react';
-import { GithubIcon, MenuIcon, XIcon, SettingsIcon, LogOutIcon, UserIcon } from 'lucide-react';
+import { GithubIcon, SettingsIcon, LogOutIcon, UserIcon } from 'lucide-react';
 import {
   Navbar,
   NavbarLogo,
   NavbarContent,
-  NavbarTrigger,
   NavbarMobile,
 } from '@/components/navbar';
 import { NavbarUser, NavbarUserItem, NavbarUserSeparator } from '@/components/navbar-user';

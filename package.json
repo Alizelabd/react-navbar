@@ -14,6 +14,7 @@
   "scripts": {
     "build": "tsup",
     "dev": " tsup --watch",
+    "start": "vite"
     "lint": "eslint .",
     "clean": "rm -rf dist",
     "prepublishOnly": "npm run build"
@@ -76,7 +77,9 @@
   "files": [
     "dist",
     "cli.js",
-    "src/components/navbar.tsx"
+    "src/components/navbar.tsx",
+    "src/components/navbar-user.tsx",
+    "src/components/navbar-search.tsx"
   ],
   "publishConfig": {
     "access": "public"

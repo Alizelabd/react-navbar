@@ -2,11 +2,23 @@ export {
   Navbar,
   NavbarLogo,
   NavbarContent,
-  NavbarMenu,
   NavbarTrigger,
+  NavbarMobile,
   type NavbarProps,
   type NavbarLogoProps,
   type NavbarContentProps,
-  type NavbarMenuProps,
   type NavbarTriggerProps,
+  type NavbarMobileProps,
 } from './components/navbar';
+
+export {
+  NavbarUser,
+  NavbarUserItem,
+  NavbarUserSeparator,
+  type NavbarUserProps,
+} from './components/navbar-user';
+
+export {
+  NavbarSearch,
+  type NavbarSearchProps,
+} from './components/navbar-search';

@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer utilities {
+  .data-\[state\=open\]\:animate-in {
+    animation-name: fadeIn;
+    animation-duration: 150ms;
+  }
+  .data-\[state\=closed\]\:animate-out {
+    animation-name: fadeOut;
+    animation-duration: 150ms;
+  }
+  .data-\[state\=open\]\:slide-in-from-right {
+    animation-name: slideInFromRight;
+    animation-duration: 300ms;
+  }
+  .data-\[state\=closed\]\:slide-out-to-right {
+    animation-name: slideOutToRight;
+    animation-duration: 300ms;
+  }
+  /* Add more animations as needed for Radix UI components */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes slideInFromRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideOutToRight {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}

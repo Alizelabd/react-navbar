@@ -6,7 +6,7 @@ import { cn } from '@/lib/cn';
 export type NavbarUserProps = {
   avatarUrl: string;
   userName: string;
-  children: React.ReactNode; // Dropdown menu items
+  children: React.ReactNode;
   className?: string;
 };
 

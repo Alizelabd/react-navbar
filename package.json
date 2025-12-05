@@ -76,10 +76,7 @@
   },
   "files": [
     "dist",
-    "cli.js",
-    "src/components/navbar.tsx",
-    "src/components/navbar-user.tsx",
-    "src/components/navbar-search.tsx"
+    "cli.js"
   ],
   "publishConfig": {
     "access": "public"
